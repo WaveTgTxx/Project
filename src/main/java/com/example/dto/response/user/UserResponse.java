@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Data
 public class UserResponse {
-    private String Name;
+    private String name;
     private String email;
-    private Set<Article> articles;
+
 }

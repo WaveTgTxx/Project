@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.entity.Category;
+import com.example.exception.CategoryNotFoundException;
 import com.example.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
     public Category findById(Long id){
-        return categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category with id "+ id + " not found"));
+        return categoryRepository.findById(id).orElseThrow(()-> new CategoryNotFoundException("Category with id "+ id + " not found"));
     }
     public void delete(Long id){
         categoryRepository.deleteById(id);
